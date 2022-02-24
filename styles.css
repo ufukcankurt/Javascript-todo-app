@@ -1,0 +1,200 @@
+:root{
+    --dark: #374151;
+    --darker: #1f2937;
+    --darkest: #111827;
+    --gray: #6B7280;
+    --light: #EEE;
+    --pink: #EC4899;
+    --purple: #8B5CF6;
+    --finishtask: rgb(53 131 68 / 30%);
+    --unfinishtask: rgb(131 72 77 / 30%);
+    --unfinishicon: #00ff31a8;
+    --finishicon: #c20000c2;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Fira sans", sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--darkest);
+    color: #fff;
+}
+
+.m-t{
+    margin-top: 2rem;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 20px 0;
+}
+
+.title h1{
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+header{
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin:0 auto;
+}
+
+#new-todo-form{
+    display: flex;
+}
+
+input, button{
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#new-todo-input{
+    flex: 1 1 0%;
+    background-color: var(--darker);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--light);
+    font-size: 1.25rem;
+}
+
+#new-todo-input::placeholder{
+    color: var(--gray);
+}
+
+#new-todo-submit{
+    color: var(--pink);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transform: .4s;
+}
+
+#new-todo-submit:hover{
+    opacity: .8;
+}
+
+#new-todo-submit:active{
+    opacity: .6;
+}
+
+main{
+    flex: 1 1 0%;
+    max-width: 880px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.todo-list{
+    padding: 1rem;
+}
+
+.todo-list h2{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 2rem;
+}
+
+#todos .todo, #end-todos .todo{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: var(--unfinishtask);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+#end-todos .todo{
+    background-color: var(--finishtask);
+}
+
+#todos .todo .content, #end-todos .todo .content{
+    flex: 1 1 0%;
+    margin-left: 6%;
+}
+
+#todos .todo .content .text, #end-todos .todo .content .text{
+    color: var(--light);
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transform: .4s;
+}
+
+#todos .todo .content .text:not(:read-only), #end-todos .todo .content .text:not(:read-only){
+    color: var(--pink);
+}
+
+#todos .todo .actions, #end-todos .todo .actions{
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.todo .actions button{
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: .4s;
+}
+
+.todo .actions button:hover{
+    opacity: .8;
+}
+
+.todo .actions button:active{
+    opacity: .6;
+}
+
+.todo .actions .edit{
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.todo .actions .delete{
+    color: crimson;
+}
+.todo .actions .change{
+    color: aqua;
+}
+
+.finish-unfinish{
+    cursor: pointer;
+    position: absolute;
+    left: 2%;
+    top: 28%;
+    
+}
+
+.finish-unfinish i{
+    font-size: 30px;
+    line-height: 25px;
+}
+
+.unfinishicon-color{
+    color: var(--unfinishicon);
+}
+
+.finishicon-color{
+    color: var(--finishicon);
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="title">
+        <h1>TO-DO APP</h1>
+    </div>
+    <header>
+        <form id="new-todo-form">
+            <input id="new-todo-input" type="text" placeholder="What would you like to do?">
+            <input id="new-todo-submit" type="submit" value="Add New Task">
+        </form>
+    </header>
+    <main>
+        <section class="todo-list">
+            <h2>Tasks List</h2>
+            <div id="todos">
+                <!-- <div class="todo">
+                    <div class="content">
+                        <input type="text" class="text" value="My todo list" readonly>
+                    </div>
+                    <div class="actions">
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                        <button class="change">Change</button>
+                    </div>
+                </div> -->
+            </div>
+            <h2 class="m-t">Completed Tasks List</h2>
+            <div id="end-todos">
+                <!-- <div class="todo">
+                    <div class="finish-unfinish">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                    </div>
+                    <div class="content">
+                        <input type="text" class="text" value="My todo list" readonly>
+                    </div>
+                    <div class="actions">
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    </main>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
