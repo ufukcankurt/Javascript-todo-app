@@ -66,7 +66,6 @@ function removeTodo(item, uuid) {
 
 //todo:: remove item to  end todo list
 function removeEndTodo(item, uuid) {
-  console.log("removeEndTodo'ya girdi...");
   endTodosListDOM.removeChild(item);
   _endtodos.forEach((value, key) => {
       if (value['id'] === uuid) {
@@ -156,7 +155,6 @@ function createContent(newTodoValue, uuid = null) {
   });
 
   newTodoDelete.addEventListener("click", () => {
-    console.log(newTodoItem.parentElement.id == "todos");
 
     if (newTodoItem.parentElement.id == "todos") {
       Swal.fire({
@@ -202,8 +200,6 @@ function createContent(newTodoValue, uuid = null) {
   });
 
   newTodoChange.addEventListener("click", () => {
-    console.log(newTodoItem.parentElement.id == "todos");
-    console.log("newtodoItem'ın kendisi: ", newTodoItem);
 
     if (newTodoItem.parentElement.id == "todos") {
       removeTodo(newTodoItem);
@@ -224,12 +220,10 @@ function createContent(newTodoValue, uuid = null) {
       newTodoChange.classList.add("finishicon-color");
       newTodoChange.style.left = "3%";
     } else {
-      console.log(uuid);
       removeEndTodo(newTodoItem);
       addTodo(newTodoItem);
 
       _endtodos.forEach((value, key) => {
-        console.log(value.id);
         if (value["id"] === uuid) {
           _todos.push({ id: value["id"], value: value["value"] });
           _endtodos.splice(key, 1);
@@ -327,19 +321,51 @@ function createContentEnd(newTodoValue, uuid = null) {
   });
 
   newTodoDelete.addEventListener("click", () => {
-    console.log(newTodoItem.parentElement.id == "todos");
 
     if (newTodoItem.parentElement.id == "todos") {
-      removeTodo(newTodoItem, uuid);
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          removeTodo(newTodoItem, uuid);
+          Swal.fire(
+            'Deleted!',
+            'Your task has been deleted.',
+            'success'
+          )
+        }
+      })
+      
     } else {
-      removeEndTodo(newTodoItem, uuid);
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          removeEndTodo(newTodoItem, uuid);
+          Swal.fire(
+            'Deleted!',
+            'Your task has been deleted.',
+            'success'
+          )
+        }
+      })
+      
     }
   });
 
   newTodoChange.addEventListener("click", () => {
-    console.log(newTodoItem.parentElement.id == "todos");
-    console.log("newtodoItem'ın kendisi: ", newTodoItem);
-
     if (newTodoItem.parentElement.id == "todos") {
       removeTodo(newTodoItem);
       addEndTodo(newTodoItem);
@@ -359,12 +385,10 @@ function createContentEnd(newTodoValue, uuid = null) {
       newTodoChange.classList.add("finishicon-color");
       newTodoChange.style.left = "3%";
     } else {
-      console.log(uuid);
       removeEndTodo(newTodoItem);
       addTodo(newTodoItem);
 
       _endtodos.forEach((value, key) => {
-        console.log(value.id);
         if (value["id"] === uuid) {
           _todos.push({ id: value["id"], value: value["value"] });
           _endtodos.splice(key, 1);
