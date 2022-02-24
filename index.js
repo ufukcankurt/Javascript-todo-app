@@ -14,7 +14,11 @@ window.addEventListener("load", () => {
     const newTodoValue = newTodoDOM.value;
 
     if (!newTodoValue) {
-      alert("Please add new task!");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please add new task!',
+      })
       return;
     }
 
@@ -146,7 +150,7 @@ function createContent(newTodoValue, uuid = null) {
       } else {
         _endtodos.forEach((value, key) => {
           if (value["id"] === uuid) {
-            value = newTodoItemInput.value;
+            value.value = newTodoItemInput.value;
           }
         });
         setLocalStorage("end_todos", _endtodos);
@@ -312,7 +316,7 @@ function createContentEnd(newTodoValue, uuid = null) {
       } else {
         _endtodos.forEach((value, key) => {
           if (value["id"] === uuid) {
-            value = newTodoItemInput.value;
+            value.value = newTodoItemInput.value;
           }
         });
         setLocalStorage("end_todos", _endtodos);
