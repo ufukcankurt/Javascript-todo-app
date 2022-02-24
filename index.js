@@ -172,7 +172,7 @@ function createContent(newTodoValue, uuid = null) {
           removeTodo(newTodoItem, uuid);
           Swal.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Your task has been deleted.',
             'success'
           )
         }
@@ -192,7 +192,7 @@ function createContent(newTodoValue, uuid = null) {
           removeEndTodo(newTodoItem, uuid);
           Swal.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Your task has been deleted.',
             'success'
           )
         }
